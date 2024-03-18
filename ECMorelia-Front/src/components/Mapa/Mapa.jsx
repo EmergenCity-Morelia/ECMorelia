@@ -10,7 +10,7 @@ export default function Mapa() {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
     return (
-        <header className="bg-gray-400 flex items-center h-18 p-4 w-full">
+        <header className="bg-gray-400 flex items-center h-18 p-4">
             <Button icon="pi pi-angle-double-right" onClick={() => setVisible(true)} />
             
             <div className="flex-grow">
