@@ -15,7 +15,7 @@ function Rutas() {
                 <Route path="/FormularioIngreso" element={<FormularioIngreso />} />
                 <Route path="/RContrasena" element={<RContrasena />} />
                 <Route path="/NuevaContrasena" element={<NuevaContrasena />} />
-                <Route path="/Mapas" element={<Mapa />} />
+                <Route path="/Mapa" element={<Mapa />} />
 
             </Routes>
         </BrowserRouter>
