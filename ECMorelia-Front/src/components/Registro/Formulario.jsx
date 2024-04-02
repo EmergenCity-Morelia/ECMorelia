@@ -9,7 +9,7 @@ const Formulario = () => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [fechaNacimiento, setFechaNacimiento] = useState('');
+    //const [fechaNacimiento, setFechaNacimiento] = useState('');
     const [error, setError] = useState('');
 
     async function handleSubmit(e) {
@@ -23,7 +23,7 @@ const Formulario = () => {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    username: username,
+                    Username: username,
                     email: email,
                     password: password,
                     // Puedes incluir fechaNacimiento aquí si tu API lo requiere
@@ -63,6 +63,8 @@ const Formulario = () => {
                     type="text"
                     placeholder="Nombre Completo"
                     className="ml-29 mt-2 border-2 w-80 p-2 placeholder-stone-400 rounded-md "
+                    value={username} // Vincula el estado del campo
+                    onChange={(e) => setUsername(e.target.value)} // Actualiza el estado cuando cambia el valor del campo
                     />
                 </div>
 
@@ -73,6 +75,8 @@ const Formulario = () => {
                     type="email"
                     placeholder="Correo electronico"
                     className="ml-29 mt-2 border-2 w-80 p-2 mt-2 placeholder-stone-400 rounded-md "
+                    value={email} // Vincula el estado del campo
+                    onChange={(e) => setEmail(e.target.value)} // Actualiza el estado cuando cambia el valor del campo
                     />
                 </div>
 
@@ -83,6 +87,8 @@ const Formulario = () => {
                     type="password"
                     placeholder="Contraseña con mas de 5 caracteres"
                     className=" ml-29 mt-2 border-2 w-80 p-2 mt-2 placeholder-stone-400 rounded-md "
+                    value={password} // Vincula el estado del campo
+                    onChange={(e) => setPassword(e.target.value)} // Actualiza el estado cuando cambia el valor del campo
                     />
                 </div>
 

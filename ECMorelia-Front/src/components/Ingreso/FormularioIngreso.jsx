@@ -36,6 +36,7 @@ const FormularioIngreso = () => {
             <input type="submit" 
             className="rounded-md bg-cyan-500 p-3 text-white uppercase font-bold hover:bg-cyan-300 transition-colors w-80 mt-5 "
             value="Ingresar"
+            onClick={() => navigate('/Mapa')}
             />
             <button 
             className="font-medium text-blue-600 dark:text-blue-500 hover:underline mt-2"
