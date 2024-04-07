@@ -1,7 +1,8 @@
 import { useNavigate } from 'react-router-dom';
-
-const FormularioIngreso = () => {
+    const FormularioIngreso = () => {
     const navigate=useNavigate();
+  
+
     return(
 
 //declaramos el contenedor que tendrá el header y formulario. La primera parte es el header y dentro del form viene el formulario

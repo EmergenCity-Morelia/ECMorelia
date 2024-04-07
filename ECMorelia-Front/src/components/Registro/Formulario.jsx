@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import usuario from '../img/usuario.png';
 import { API_URL } from '../../auth/constants';
+import {useAuth} from '../../auth/AuthProvider'
 
 const Formulario = () => {
     const navigate = useNavigate();
@@ -9,8 +10,14 @@ const Formulario = () => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    //const [fechaNacimiento, setFechaNacimiento] = useState('');
-    const [error, setError] = useState('');
+    const [fechaNacimiento, setFechaNacimiento] = useState('');
+    const [error, setError] = useState("");
+    const auth =useAuth();
+
+    if(auth.isAuthenticated){
+        return <navigate to="/ingreso/FormularioIngreso.jsx"></navigate>
+    }
+
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -23,10 +30,10 @@ const Formulario = () => {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    Username: username,
-                    email: email,
-                    password: password,
-                    // Puedes incluir fechaNacimiento aquí si tu API lo requiere
+                    username,
+                    email,
+                    password,
+                    fechaNacimiento
                 }),
             });
 
@@ -54,7 +61,7 @@ const Formulario = () => {
             <p className="font-semibold text-3x1 text-center mt-10 text-gray-900">Realiza el registro llenando el siguiente formulario</p>  
         
            <form className="bg-gray-300 rounded-lg py-10 px-5 mt-5 shadow-lg" onSubmit={handleSubmit}>
-           {error && <div className="error-message">{error}</div>}
+           {error && <div className="error-message">{error}</div>} 
            <img className="usuario w-32 ml-36" src={usuario} alt="Imagen usuario" />         
                 <div>
                     <label htmlFor="nombre" className="ml-10 block text-blue-950 uppercase font-bold text-2xl text-left mt-4">NOMBRE</label>
@@ -98,6 +105,8 @@ const Formulario = () => {
                     id="fechaNacimiento"
                     type="date"
                     className="ml-29 mt-2 border-2 w-80 p-2 mt-2 rounded-md "
+                    value={fechaNacimiento}
+                    onChange={(e) => setFechaNacimiento(e.target.value)}
                     />
                 </div>
                 
@@ -109,7 +118,8 @@ const Formulario = () => {
         ¿Ya tienes cuenta?,
         <button 
           className="font-medium text-blue-600 dark:text-blue-500 hover:underline mt-2"
-          onClick={() => navigate('/FormularioIngreso')}>
+          onClick={() => navigate('/FormularioIngreso')}
+          >
           Iniciar Sesión
         </button>
       </h2>
