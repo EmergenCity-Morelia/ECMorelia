@@ -4,6 +4,8 @@ import logo from '../img/Logo.png';
 import usuario from '../img/usuario.png';
 import { Sidebar } from 'primereact/sidebar';
 import { Button } from 'primereact/button';
+import App from './App.jsx';
+import { ChakraProvider, theme } from '@chakra-ui/react';
 
 export default function Mapa() {
     const [visible, setVisible] = useState(false);
@@ -11,6 +13,7 @@ export default function Mapa() {
     const navigate=useNavigate();
 
     return (
+    <div>
         <header className="bg-gray-400 flex items-center h-18 p-4">
             <Button icon="pi pi-angle-double-right" onClick={() => setVisible(true)} />
             
@@ -43,6 +46,12 @@ export default function Mapa() {
                 )}
             </div>
         </header>
+  <React.StrictMode>
+    <ChakraProvider theme={theme}>
+      <App />
+    </ChakraProvider>
+  </React.StrictMode>
+    </div>    
     );
 }
 
