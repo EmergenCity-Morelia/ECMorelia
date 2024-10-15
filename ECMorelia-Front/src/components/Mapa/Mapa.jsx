@@ -25,7 +25,14 @@ export default function Mapa() {
             </div>
 
             <Sidebar visible={visible} onHide={() => setVisible(false)} className="w-96 md:w-20rem lg:w-30rem">
-                <h2>SIDEBAR EMERGENCIA</h2>
+                <h2>EMERGENCIA</h2>
+                <Button 
+                        label="Gestión de Ambulancias" 
+                        icon="pi pi-database" 
+                        className="p-button-rounded p-button-success mt-4" 
+                        onClick={() => navigate('/Ambulancias')} // Redirige a la ruta del CRUD
+                />
+
                 {/* Aquí irían el resto de tus componentes del sidebar */}
             </Sidebar>
 
