@@ -26,16 +26,39 @@ export default function Mapa() {
 
             <Sidebar visible={visible} onHide={() => setVisible(false)} className="w-96 md:w-20rem lg:w-30rem">
                 <h2>EMERGENCIA</h2>
-                <Button 
-                        label="Gestión de Ambulancias" 
-                        icon="pi pi-database" 
-                        className="p-button-rounded p-button-success mt-4" 
-                        onClick={() => navigate('/Ambulancias')} // Redirige a la ruta del CRUD
-                />
-
-                {/* Aquí irían el resto de tus componentes del sidebar */}
-            </Sidebar>
-
+    <div className="flex flex-col space-y-4">
+        <Button 
+            label="Gestión de Ambulancias" 
+            icon="pi pi-database" 
+            className="p-button-rounded p-button-success mt-4 justify-start" 
+            onClick={() => navigate('/Ambulancias')}
+        />
+        <Button 
+            label="Gestión Paramédicos" 
+            icon="pi pi-database" 
+            className="p-button-rounded p-button-success mt-4 justify-start" 
+            onClick={() => navigate('/Paramédicos')}
+        />
+        <Button 
+            label="Gestión de Hospitales" 
+            icon="pi pi-database" 
+            className="p-button-rounded p-button-success mt-4 justify-start" 
+            onClick={() => navigate('/Hospitales')}
+        />
+        <Button 
+            label="Gestión de Operadores" 
+            icon="pi pi-database" 
+            className="p-button-rounded p-button-success mt-4 justify-start" 
+            onClick={() => navigate('/Operadores')}
+        />
+        <Button 
+            label="Gestión de Médicos" 
+            icon="pi pi-database" 
+            className="p-button-rounded p-button-success mt-4 justify-start" 
+            onClick={() => navigate('/Médicos')}
+        />
+    </div>
+</Sidebar>
             <div className="dropdown dropdown-end">
                 <button className="mr-4" onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
                     <img className="w-10 h-10 rounded-full border-2 border-white" src={usuario} alt="Perfil" />
@@ -61,6 +84,3 @@ export default function Mapa() {
     </div>    
     );
 }
-
-
-
