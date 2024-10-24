@@ -9,7 +9,7 @@ CREATE TABLE doctor (
     nombre VARCHAR(255),
     apellidos VARCHAR(255),
     licencia_medica VARCHAR(255),
-    password VARCHAR(50)
+    password VARCHAR(72)
 );
 
 -- Tabla: hospitales
@@ -17,7 +17,7 @@ CREATE TABLE hospitales (
     id_hospitales SERIAL PRIMARY KEY,
     nombre VARCHAR(255),
     direccion VARCHAR(255),
-    password VARCHAR(50)
+    password VARCHAR(72)
 );
 
 -- Tabla: operador
@@ -25,7 +25,7 @@ CREATE TABLE operador (
     id SERIAL PRIMARY KEY,
     nombre VARCHAR(50),
     licencia_medica VARCHAR(50),
-    password VARCHAR(50)
+    password VARCHAR(72)
 );
 
 -- Tabla: paramedicos
@@ -36,7 +36,7 @@ CREATE TABLE paramedicos (
     licencia_medica VARCHAR(255),
     certificado VARCHAR(255),
     licencia_conducir VARCHAR(255),
-    password VARCHAR(50)
+    password VARCHAR(72)
 );
 
 -- Tabla: ambulancias
@@ -50,7 +50,7 @@ CREATE TABLE ambulancias (
 
 -- Tabla: ambulancias_doctor
 CREATE TABLE ambulancias_doctor (
-    id_doctor SERIAL,
+    id_doctor INT,
     numero_placa_sm INT,
     reporte_doctor VARCHAR(255),
     PRIMARY KEY (id_doctor, numero_placa_sm),
@@ -60,7 +60,7 @@ CREATE TABLE ambulancias_doctor (
 
 -- Tabla: ambulancias_hospitales
 CREATE TABLE ambulancias_hospitales (
-    id_hospitales SERIAL,
+    id_hospitales INT,
     numero_placa_sm INT,
     reporte_servicio VARCHAR(255),
     PRIMARY KEY (id_hospitales, numero_placa_sm),
@@ -70,7 +70,7 @@ CREATE TABLE ambulancias_hospitales (
 
 -- Tabla: ambulancias_paramedicos
 CREATE TABLE ambulancias_paramedicos (
-    id_ambulancias_paramedicos SERIAL PRIMARY KEY,
+    id_ambulancias_paramedicos INT PRIMARY KEY,
     id_paramedicos INT,
     numero_placa_sm INT,
     reporte_inicial VARCHAR(255),
