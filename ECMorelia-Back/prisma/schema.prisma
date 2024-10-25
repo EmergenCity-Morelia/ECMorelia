@@ -53,14 +53,14 @@ model doctor {
   id_doctor          Int                  @id @default(autoincrement())
   nombre             String?              @db.VarChar(255)
   apellidos          String?              @db.VarChar(255)
-  licencia_medica    String?              @db.VarChar(255)
+  licencia_medica    String?              @unique @db.VarChar(255)
   password           String?              @db.VarChar(72)
   ambulancias_doctor ambulancias_doctor[]
 }
 
 model hospitales {
   id_hospitales          Int                      @id @default(autoincrement())
-  nombre                 String?                  @db.VarChar(255)
+  nombre                 String?                  @unique @db.VarChar(255)
   direccion              String?                  @db.VarChar(255)
   password               String?                  @db.VarChar(72)
   ambulancias            ambulancias[]
@@ -70,7 +70,7 @@ model hospitales {
 model operador {
   id              Int     @id @default(autoincrement())
   nombre          String? @db.VarChar(50)
-  licencia_medica String? @db.VarChar(50)
+  licencia_medica String? @unique @db.VarChar(50)
   password        String? @db.VarChar(72)
 }
 
@@ -78,7 +78,7 @@ model paramedicos {
   id_paramedicos          Int                       @id @default(autoincrement())
   nombre                  String?                   @db.VarChar(255)
   apellidos               String?                   @db.VarChar(255)
-  licencia_medica         String?                   @db.VarChar(255)
+  licencia_medica         String?                   @unique @db.VarChar(255)
   certificado             String?                   @db.VarChar(255)
   licencia_conducir       String?                   @db.VarChar(255)
   password                String?                   @db.VarChar(72)

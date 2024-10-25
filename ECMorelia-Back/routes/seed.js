@@ -16,9 +16,6 @@ const router = app.Router()
 const SeedController = require('../controllers/seedController')
 const seedController = new SeedController()
 
-router.post('/', async (req, res) => {
-  await seedController.run()
-  res.status(200).json({ seed: 'New data generated' })
-})
+router.post('/', seedController.run.bind(seedController))
 
 module.exports = router

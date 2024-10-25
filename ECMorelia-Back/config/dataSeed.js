@@ -10,7 +10,6 @@ const databaseData = {
     direccion: 'Calle Principal 123',
     password: 'hashed_password_1'
   },
-
   operador: {
     nombre: 'Carlos',
     licencia_medica: 'LM987654',

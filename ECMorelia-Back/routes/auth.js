@@ -1,32 +1,10 @@
 const app = require('express')
-const OperadorService = require('../services/OperadorService')
 const router = app.Router()
+const AuthController = require('../controllers/authController')
+const authController = new AuthController()
 
-const operador = new OperadorService()
+router.post('/signup/:role', authController.signup.bind(authController))
 
-router.get('/', (req, res) => {
-  res.send({
-    message: 'Hello World'
-  })
-})
-
-router.post('/signup', async (req, res) => {
-  try {
-    const user = req.body
-    await operador.addUser(user)
-    res.status(200).send({
-      message: `New user added successfully`
-    })
-  } catch (error) {
-    console.error(error)
-  }
-})
-
-router.post('/login', () => {
-  try {
-  } catch (error) {
-    console.error(error)
-  }
-})
+router.post('/login/:role', authController.login.bind(authController))
 
 module.exports = router

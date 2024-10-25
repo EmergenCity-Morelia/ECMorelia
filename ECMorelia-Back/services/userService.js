@@ -3,17 +3,17 @@ const prisma = require('../config/prisma')
 const JWTService = require('./jwtService')
 
 class OperadorService {
-  // * Sugerencia: Refactorizar con inyeccion de dependecias
-  bcryptService = new BcryptService()
-  jwtService = new JWTService()
+  constructor() {
+    this.bcryptService = new BcryptService()
+    this.jwtService = new JWTService()
+  }
 
-  constructor() {}
-
-  async addUser(user) {
+  async addUser(user, role, id) {
+    console.log(user, role, id)
     try {
-      const userExists = await prisma.operador.findFirst({
+      const userExists = await prisma[role].findFirst({
         where: {
-          licencia_medica: user.licencia_medica
+          [id]: user[id]
         }
       })
 
@@ -22,36 +22,38 @@ class OperadorService {
       }
 
       const hashedPassword = await this.bcryptService.hashPassword(user.password)
-      const createdUser = await prisma.operador.create({
+      const createdUser = await prisma[role].create({
         data: {
           ...user,
           password: hashedPassword
         }
       })
 
-      return { user: createdUser.nombre, license: createdUser.licencia_medica }
+      return { user: { ...createdUser } }
     } catch (error) {
       throw new Error(error.message)
     }
   }
 
-  async loginUser({ licencia_medica, password }) {
+  async verifyUser(user, rol, id) {
     try {
-      const operador = await prisma.operador.findUnique({
-        where: { licencia_medica }
+      const currentUser = await prisma[rol].findUnique({
+        where: { [id]: user[id] }
       })
 
-      if (!operador) {
+      if (!currentUser) {
         throw new Error('User not found')
       }
 
-      const isPasswordValid = await this.bcryptService.comparePassword(password, operador.password)
+      const isPasswordValid = await this.bcryptService.comparePassword(
+        user.password,
+        currentUser.password
+      )
       if (!isPasswordValid) {
         throw new Error('Invalid credentials')
       }
 
-      const token = this.jwtService.generateToken(operador.licencia_medica)
-      return { token }
+      return this.jwtService.generateToken({ user: { ...currentUser } })
     } catch (error) {
       throw new Error(error.message)
     }
