@@ -37,18 +37,18 @@ const FormularioIngreso = () => {
 					type="submit"
 					className="rounded-md bg-cyan-500 p-3 text-white uppercase font-bold hover:bg-cyan-300 transition-colors w-80 mt-5 "
 					value="Ingresar"
-					onClick={() => navigate("/Mapa")}
+					onClick={() => navigate("/mapa")}
 				/>
 				<button
 					className="font-medium text-blue-600 dark:text-blue-500 hover:underline mt-2"
-					onClick={() => navigate("/Formulario")}
+					onClick={() => navigate("/signup")}
 				>
 					Registrarme
 				</button>
 				<button
 					href="#"
 					className=" font-medium text-blue-600 dark:text-blue-500 hover:underline mt-2"
-					onClick={() => navigate("/RContrasena")}
+					onClick={() => navigate("/recover-password")}
 				>
 					Olvide mi contraseña
 				</button>

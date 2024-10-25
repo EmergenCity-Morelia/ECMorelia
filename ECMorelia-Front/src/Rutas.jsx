@@ -1,33 +1,45 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import App from "./App";
-import Formulario from "./components/Registro/Formulario";
+import { OperadorFormulario } from "./components/Registro/OperadorFormulario";
 import Mapa from "./components/Mapa/Mapa";
 import Ambulancias from "./components/Mapa/Ambulancias";
-import Paramédicos from "./components/Mapa/Paramédicos";
+import Paramedicos from "./components/Mapa/Paramédicos";
 import Hospitales from "./components/Mapa/Hospitales";
 import Operadores from "./components/Mapa/Operadores";
 import Médicos from "./components/Mapa/Médicos";
 import FormularioIngreso from "./components/Ingreso/FormularioIngreso";
 import RContrasena from "./components/RecuperacionContraseña/RContrasena";
 import NuevaContrasena from "./components/NuevaContrasena/NuevaContrasena";
+import ProtectedRoutes from "./components/ProtectedRoutes/ProtectedRoutes";
+import { DoctorFormulario } from "./components/Registro/DoctorFormulario";
+import { HospitalFormulario } from "./components/Registro/HospitalFormulario";
+import { AuthProvider } from "./auth/AuthProvider";
 
 function Rutas() {
 	return (
-		<BrowserRouter>
-			<Routes>
-				<Route path="/" element={<App />} />
-				<Route path="/formulario" element={<Formulario />} />
-				<Route path="/formularioIngreso" element={<FormularioIngreso />} />
-				<Route path="/rcontrasena" element={<RContrasena />} />
-				<Route path="/nuevaContrasena" element={<NuevaContrasena />} />
-				<Route path="/mapa" element={<Mapa />} />
-				<Route path="/ambulancias" element={<Ambulancias />} />
-				<Route path="/paramédicos" element={<Paramédicos />} />
-				<Route path="/hospitales" element={<Hospitales />} />
-				<Route path="/operadores" element={<Operadores />} />
-				<Route path="/medicos" element={<Médicos />} />
-			</Routes>
-		</BrowserRouter>
+		<AuthProvider>
+			<BrowserRouter>
+				<Routes>
+					<Route path="/" element={<App />} />
+					<Route path="/signup">
+						<Route path="operador" element={<OperadorFormulario />} />
+						<Route path="doctor" element={<DoctorFormulario />} />
+						<Route path="hospital" element={<HospitalFormulario />} />
+					</Route>
+					<Route path="/login" element={<FormularioIngreso />} />
+					<Route path="/recover-password" element={<RContrasena />} />
+					<Route path="/new-password" element={<NuevaContrasena />} />
+					<Route element={<ProtectedRoutes />}>
+						<Route path="/mapa" element={<Mapa />} />
+						<Route path="/ambulancias" element={<Ambulancias />} />
+						<Route path="/paramedicos" element={<Paramedicos />} />
+						<Route path="/hospitales" element={<Hospitales />} />
+						<Route path="/operadores" element={<Operadores />} />
+						<Route path="/medicos" element={<Médicos />} />
+					</Route>
+				</Routes>
+			</BrowserRouter>
+		</AuthProvider>
 	);
 }
 

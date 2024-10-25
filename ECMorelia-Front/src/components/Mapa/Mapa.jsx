@@ -31,31 +31,31 @@ export default function Mapa() {
 							label="Gestión de Ambulancias"
 							icon="pi pi-database"
 							className="p-button-rounded p-button-success mt-4 justify-start"
-							onClick={() => navigate("/Ambulancias")}
+							onClick={() => navigate("/ambulancias")}
 						/>
 						<Button
 							label="Gestión Paramédicos"
 							icon="pi pi-database"
 							className="p-button-rounded p-button-success mt-4 justify-start"
-							onClick={() => navigate("/Paramédicos")}
+							onClick={() => navigate("/paramedicos")}
 						/>
 						<Button
 							label="Gestión de Hospitales"
 							icon="pi pi-database"
 							className="p-button-rounded p-button-success mt-4 justify-start"
-							onClick={() => navigate("/Hospitales")}
+							onClick={() => navigate("/hospitales")}
 						/>
 						<Button
 							label="Gestión de Operadores"
 							icon="pi pi-database"
 							className="p-button-rounded p-button-success mt-4 justify-start"
-							onClick={() => navigate("/Operadores")}
+							onClick={() => navigate("/operadores")}
 						/>
 						<Button
 							label="Gestión de Médicos"
 							icon="pi pi-database"
 							className="p-button-rounded p-button-success mt-4 justify-start"
-							onClick={() => navigate("/Médicos")}
+							onClick={() => navigate("/medicos")}
 						/>
 					</div>
 				</Sidebar>
@@ -68,7 +68,7 @@ export default function Mapa() {
 							<button className="drelative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800">
 								<span
 									className="relative px-10 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0"
-									onClick={() => navigate("/FormularioIngreso")}
+									onClick={() => navigate("/login")}
 								>
 									Cerrar Sesión
 								</span>

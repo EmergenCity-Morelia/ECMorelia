@@ -1,4 +1,8 @@
 function EmergencityNombre() {
-	return <h1 className="font-black text-5xl text-center text-cyan-400">EMERGENCITY</h1>;
+	return (
+		<h1 className="font-black text-8xl tracking-wider text-center bg-text-gradient inline-block text-transparent bg-clip-text">
+			EMERGENCITY
+		</h1>
+	);
 }
 export default EmergencityNombre;
