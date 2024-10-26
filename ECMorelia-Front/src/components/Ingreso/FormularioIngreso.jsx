@@ -20,7 +20,7 @@ import { useNavigate } from 'react-router-dom';
                     id="email"
                     type="email"
                     placeholder="Correo electronico"
-                    className="ml-29 mt-2 border-2 w-80 p-2 mt-2 placeholder-stone-400 rounded-md "
+                    className="ml-29 border-2 w-80 p-2 mt-2 placeholder-stone-400 rounded-md "
                     />
                 </div>
 

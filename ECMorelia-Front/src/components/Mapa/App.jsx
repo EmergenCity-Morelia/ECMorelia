@@ -24,7 +24,7 @@ import {
   
   function App() {
     const { isLoaded } = useJsApiLoader({
-      googleMapsApiKey: 'AIzaSyAA2ZLeVeA2SRLvFh-tN2HxZsxD4I2CHlA',
+      googleMapsApiKey: 'AIzaSyDbRciAIWJ8sZ048PW65MZeqGM1WbP9lpk',
       libraries: ['places'],
     })
   
