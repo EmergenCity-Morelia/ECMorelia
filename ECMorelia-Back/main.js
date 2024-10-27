@@ -24,6 +24,12 @@ app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs))
 app.use('/seed', seed)
 app.use('/auth', auth)
 
+app.get('/', (req, res) => {
+  res.json({
+    message: 'Hello world'
+  })
+})
+
 app.listen(PORT, () => {
   console.log(`Server is running in port ${PORT}`)
 })
