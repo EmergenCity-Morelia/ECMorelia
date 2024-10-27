@@ -1,0 +1,87 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model ambulancias {
+  numero_placa_sm         Int                       @id @default(autoincrement())
+  id_paramedicos          Int?
+  id_hospitales           Int?
+  hospitales              hospitales?               @relation(fields: [id_hospitales], references: [id_hospitales], onDelete: NoAction, onUpdate: NoAction)
+  paramedicos             paramedicos?              @relation(fields: [id_paramedicos], references: [id_paramedicos], onDelete: NoAction, onUpdate: NoAction)
+  ambulancias_doctor      ambulancias_doctor[]
+  ambulancias_hospitales  ambulancias_hospitales[]
+  ambulancias_paramedicos ambulancias_paramedicos[]
+}
+
+model ambulancias_doctor {
+  id_doctor       Int
+  numero_placa_sm Int
+  reporte_doctor  String?     @db.VarChar(255)
+  doctor          doctor      @relation(fields: [id_doctor], references: [id_doctor], onDelete: NoAction, onUpdate: NoAction)
+  ambulancias     ambulancias @relation(fields: [numero_placa_sm], references: [numero_placa_sm], onDelete: NoAction, onUpdate: NoAction)
+
+  @@id([id_doctor, numero_placa_sm])
+}
+
+model ambulancias_hospitales {
+  id_hospitales    Int
+  numero_placa_sm  Int
+  reporte_servicio String?     @db.VarChar(255)
+  hospitales       hospitales  @relation(fields: [id_hospitales], references: [id_hospitales], onDelete: NoAction, onUpdate: NoAction)
+  ambulancias      ambulancias @relation(fields: [numero_placa_sm], references: [numero_placa_sm], onDelete: NoAction, onUpdate: NoAction)
+
+  @@id([id_hospitales, numero_placa_sm])
+}
+
+model ambulancias_paramedicos {
+  id_ambulancias_paramedicos Int          @id @default(autoincrement())
+  id_paramedicos             Int?
+  numero_placa_sm            Int?
+  reporte_inicial            String?      @db.VarChar(255)
+  fecha                      DateTime?    @db.Timestamp(6)
+  estado                     String?      @db.VarChar(50)
+  paramedicos                paramedicos? @relation(fields: [id_paramedicos], references: [id_paramedicos], onDelete: NoAction, onUpdate: NoAction)
+  ambulancias                ambulancias? @relation(fields: [numero_placa_sm], references: [numero_placa_sm], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model doctor {
+  id_doctor          Int                  @id @default(autoincrement())
+  nombre             String?              @db.VarChar(255)
+  apellidos          String?              @db.VarChar(255)
+  licencia_medica    String?              @unique @db.VarChar(255)
+  password           String?              @db.VarChar(72)
+  ambulancias_doctor ambulancias_doctor[]
+}
+
+model hospitales {
+  id_hospitales          Int                      @id @default(autoincrement())
+  nombre                 String?                  @unique @db.VarChar(255)
+  direccion              String?                  @db.VarChar(255)
+  password               String?                  @db.VarChar(72)
+  ambulancias            ambulancias[]
+  ambulancias_hospitales ambulancias_hospitales[]
+}
+
+model operador {
+  id              Int     @id @default(autoincrement())
+  nombre          String? @db.VarChar(50)
+  licencia_medica String? @unique @db.VarChar(50)
+  password        String? @db.VarChar(72)
+}
+
+model paramedicos {
+  id_paramedicos          Int                       @id @default(autoincrement())
+  nombre                  String?                   @db.VarChar(255)
+  apellidos               String?                   @db.VarChar(255)
+  licencia_medica         String?                   @unique @db.VarChar(255)
+  certificado             String?                   @db.VarChar(255)
+  licencia_conducir       String?                   @db.VarChar(255)
+  password                String?                   @db.VarChar(72)
+  ambulancias             ambulancias[]
+  ambulancias_paramedicos ambulancias_paramedicos[]
+}
