@@ -9,7 +9,6 @@ class OperadorService {
   }
 
   async addUser(user, role, id) {
-    console.log(user, role, id)
     try {
       const userExists = await prisma[role].findFirst({
         where: {
