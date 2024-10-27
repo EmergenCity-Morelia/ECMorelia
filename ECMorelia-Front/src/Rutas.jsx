@@ -7,13 +7,14 @@ import Paramedicos from "./components/Mapa/Paramédicos";
 import Hospitales from "./components/Mapa/Hospitales";
 import Operadores from "./components/Mapa/Operadores";
 import Médicos from "./components/Mapa/Médicos";
-import FormularioIngreso from "./components/Ingreso/FormularioIngreso";
+import Login from "./components/Ingreso/Login";
 import RContrasena from "./components/RecuperacionContraseña/RContrasena";
 import NuevaContrasena from "./components/NuevaContrasena/NuevaContrasena";
 import ProtectedRoutes from "./components/ProtectedRoutes/ProtectedRoutes";
 import { DoctorFormulario } from "./components/Registro/DoctorFormulario";
 import { HospitalFormulario } from "./components/Registro/HospitalFormulario";
-import { AuthProvider } from "./auth/AuthProvider";
+import { AuthProvider } from "./auth/AuthProvider.tsx";
+import { ParamedicoFormulario } from "./components/Registro/ParamedicoFormulario";
 
 function Rutas() {
 	return (
@@ -25,8 +26,9 @@ function Rutas() {
 						<Route path="operador" element={<OperadorFormulario />} />
 						<Route path="doctor" element={<DoctorFormulario />} />
 						<Route path="hospital" element={<HospitalFormulario />} />
+						<Route path="paramedico" element={<ParamedicoFormulario />} />
 					</Route>
-					<Route path="/login" element={<FormularioIngreso />} />
+					<Route path="/login" element={<Login />} />
 					<Route path="/recover-password" element={<RContrasena />} />
 					<Route path="/new-password" element={<NuevaContrasena />} />
 					<Route element={<ProtectedRoutes />}>

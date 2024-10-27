@@ -8,3 +8,9 @@ de estos archivos de configuración que acabamos de crear*/
 .custom-placeholder::placeholder {
 	color: red; /* Cambiar 'red' por el código de color que desees */
 }
+
+@layer base {
+	body {
+		font-family: "Poppins", sans-serif;
+	}
+}

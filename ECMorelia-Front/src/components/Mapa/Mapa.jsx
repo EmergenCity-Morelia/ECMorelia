@@ -6,11 +6,18 @@ import { Sidebar } from "primereact/sidebar";
 import { Button } from "primereact/button";
 import App from "./App.jsx";
 import { ChakraProvider, theme } from "@chakra-ui/react";
+import { useAuth } from "../../auth/useAuth.js";
 
 export default function Mapa() {
 	const [visible, setVisible] = useState(false);
 	const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 	const navigate = useNavigate();
+	const { setAuth } = useAuth();
+
+	const closeSession = () => {
+		setAuth(false);
+		navigate("/login");
+	};
 
 	return (
 		<div>
@@ -68,7 +75,7 @@ export default function Mapa() {
 							<button className="drelative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800">
 								<span
 									className="relative px-10 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0"
-									onClick={() => navigate("/login")}
+									onClick={closeSession()}
 								>
 									Cerrar Sesión
 								</span>

@@ -25,7 +25,6 @@ export const HospitalFormulario = () => {
 		validateOnBlur: false,
 		validateOnChange: false,
 		onSubmit: async (values) => {
-			console.log(values);
 			try {
 				await fetch(`${import.meta.env.VITE_API}/auth/signup/operador`, {
 					method: "POST",

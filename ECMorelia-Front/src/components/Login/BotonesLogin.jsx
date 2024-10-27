@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 function BotonesLogin() {
 	const navigate = useNavigate();
 	return (
-		<div className="container mt-16 flex justify-center items-center h-200">
+		<div className="container mt-16 flex flex-col gap-2 md:flex-row justify-center items-center h-200">
 			{/* Botón Operador */}
 			<button
 				id="botonOperador"

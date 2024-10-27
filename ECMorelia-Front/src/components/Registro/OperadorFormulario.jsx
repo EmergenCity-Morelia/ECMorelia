@@ -6,14 +6,14 @@ import { useAuth } from "../../auth/useAuth";
 
 const validationSchema = Yup.object().shape({
 	nombre: Yup.string()
-		.required("El nombre es obligatorio")
+		.required("El nombre es requerido")
 		.min(2, "El nombre debe tener al menos 2 caracteres")
 		.max(50, "El nombre no puede exceder los 50 caracteres"),
 	licencia_medica: Yup.string()
-		.required("La licencia médica es obligatoria")
+		.required("La licencia médica es requerida")
 		.matches(/^[A-Z0-9]+$/, "La licencia médica solo puede contener letras mayúsculas y números"),
 	password: Yup.string()
-		.required("La contraseña es obligatoria")
+		.required("La contraseña es requerida")
 		.min(6, "La contraseña debe tener al menos 5 caracteres")
 		.max(20, "La contraseña no puede exceder los 20 caracteres")
 });
