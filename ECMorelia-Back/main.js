@@ -10,8 +10,8 @@ dotenv.config()
 const seed = require('./routes/seed.js')
 const auth = require('./routes/auth.js')
 const corsOptions = {
-  origin: 'http://localhost:5173', // Especifica el origen permitido
-  credentials: true // Permite el envío de credenciales (como cookies)
+  origin: process.env.CLIENT_URL || 'http://localhost:5173',
+  credentials: true
 }
 
 const PORT = process.env.PORT || 3000
