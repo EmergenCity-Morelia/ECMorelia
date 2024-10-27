@@ -27,11 +27,6 @@ const initialValues = {
 export const OperadorFormulario = () => {
 	const navigate = useNavigate();
 
-	const { isAuthenticated } = useAuth();
-	if (isAuthenticated) {
-		alert("mamarre");
-	}
-
 	const formik = useFormik({
 		initialValues,
 		validationSchema,
