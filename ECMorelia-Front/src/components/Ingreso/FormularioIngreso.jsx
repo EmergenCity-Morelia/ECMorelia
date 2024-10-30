@@ -1,59 +1,92 @@
 import { useNavigate } from 'react-router-dom';
-    const FormularioIngreso = () => {
-    const navigate=useNavigate();
-  
+import logo from '../img/Logo.png';
+import usuario from '../img/formularioIngresoIcono.png'; // Asegúrate de que esta imagen esté en la carpeta correcta
 
-    return(
+const FormularioIngreso = () => {
+    const navigate = useNavigate();
 
-//declaramos el contenedor que tendrá el header y formulario. La primera parte es el header y dentro del form viene el formulario
-        <div className="mt-50 container max-w-md mx-auto text-center">
+    return (
+        <div className="min-h-screen bg-gradient-to-b from-gray-300 via-gray-400 to-gray-500 flex flex-col">
+            {/* Topbar */}
+            <nav className="fixed top-0 left-0 w-full bg-gradient-to-r from-[#002D62] to-[#74C2E1] p-4 flex items-center shadow-lg z-50">
+                <img src={logo} alt="Emergencity Logo" className="ml-3" width="65" />
+                <h1 className="text-xl font-bold text-white tracking-wide mx-2">EMERGENCITY</h1>
+            </nav>
 
-
-<h1 className="font-black text-5xl text-center mt-9 text-neutral-900">BIENVENIDO A</h1><span></span> <h1 className="font-black text-5xl text-center text-cyan-400">EMERGENCITY</h1>
-            <h2 className="font-medium text-3x1 text-center mt-10 text-neutral-900">Inicia Sesión para continuar</h2>
-        
-           <form className="bg-gray-300 rounded-lg py-10 px-5 mt-5 shadow-lg">      
-
-                <div className="mt-5">
-                    <label htmlFor="email" className="ml-10 block text-blue-950 uppercase font-bold text-2xl text-left">CORREO ELECTRONICO</label>
-                    <input 
-                    id="email"
-                    type="email"
-                    placeholder="Correo electronico"
-                    className="ml-29 border-2 w-80 p-2 mt-2 placeholder-stone-400 rounded-md "
+            {/* Contenedor del Formulario */}
+            <div className="flex items-center justify-center flex-1 p-8 mt-16">
+                <div className="flex bg-white rounded-lg shadow-lg overflow-hidden w-full max-w-4xl">
+                    {/* Sección Izquierda - Imagen o detalles */}
+                    <div className="w-1/3 bg-gray-100 p-8 flex flex-col items-center">
+                    <img 
+                        src={usuario} 
+                        alt="Icono Usuario" 
+                        style={{ width: '100%', height: '100%', objectFit: 'cover', maxWidth: '500px', maxHeight: '500px' }} 
+                        className="mt-20 mb-4" 
                     />
-                </div>
 
-                <div className="mt-5">
-                    <label htmlFor="contraseña" className="ml-10 block text-blue-950 uppercase font-bold text-2xl text-left">CONTRASEÑA</label>
-                    <input 
-                    id="contraseña"
-                    type="password"
-                    placeholder="Ingresa tu contraseña"
-                    className=" ml-29 mt-2 border-2 w-80 p-2 mt-2 placeholder-stone-400 rounded-md "
-                    />
-                </div>
 
-            <input type="submit" 
-            className="rounded-md bg-cyan-500 p-3 text-white uppercase font-bold hover:bg-cyan-300 transition-colors w-80 mt-5 "
-            value="Ingresar"
-            onClick={() => navigate('/Mapa')}
-            />
-            <button 
-            className="font-medium text-blue-600 dark:text-blue-500 hover:underline mt-2"
-            onClick={() => navigate('/Formulario')}
-            > 
-            Registrarme 
-            </button>
-            <button href="#" className=" font-medium text-blue-600 dark:text-blue-500 hover:underline mt-2"
-            onClick={() => navigate('/RContrasena')}
-            >
-                Olvide mi contraseña
-            </button>
-            </form>
+
+                        
+                    </div>
+
+                    {/* Sección Derecha - Formulario */}
+                    <div className="w-2/3 p-8">
+                    <h1 className="font-black text-3xl text-center text-transparent bg-clip-text bg-gradient-to-r from-[#002D62] to-[#74C2E1]">
+                        BIENVENIDO DE NUEVO
+                    </h1>
+
+                        <h2 className="font-medium text-lg text-center mt-4 text-neutral-700">Inicia sesión para continuar</h2>
+
+                        <form className="mt-6 space-y-5">
+                            <div>
+                                <label htmlFor="email" className="block text-blue-950 uppercase font-bold text-lg text-left">Correo Electrónico</label>
+                                <input 
+                                    id="email"
+                                    type="email"
+                                    placeholder="Correo electrónico"
+                                    className="border-2 w-full p-2 mt-2 placeholder-stone-400 rounded-md"
+                                />
+                            </div>
+
+                            <div>
+                                <label htmlFor="contraseña" className="block text-blue-950 uppercase font-bold text-lg text-left">Contraseña</label>
+                                <input 
+                                    id="contraseña"
+                                    type="password"
+                                    placeholder="Ingresa tu contraseña"
+                                    className="border-2 w-full p-2 mt-2 placeholder-stone-400 rounded-md"
+                                />
+                            </div>
+
+                            <input 
+                                type="submit" 
+                                className="w-full bg-blue-600 text-white font-bold p-3 rounded-md hover:bg-blue-500 transition-colors" 
+                                value="Iniciar Sesión"
+                                onClick={() => navigate('/Mapa')}
+                            />
+
+                            <div className="text-center mt-4 space-y-2">
+                                <button 
+                                    className="font-medium text-blue-600 hover:underline"
+                                    onClick={() => navigate('/RegistroCuenta')}
+                                > 
+                                    Registrarme 
+                                </button>
+                                <br />
+                                <button 
+                                    className="font-medium text-blue-600 hover:underline"
+                                    onClick={() => navigate('/RContrasena')}
+                                >
+                                    Olvidé mi contraseña
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-        
-    )
-    
+    );
 }
-export default FormularioIngreso
+
+export default FormularioIngreso;
