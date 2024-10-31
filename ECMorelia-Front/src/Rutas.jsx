@@ -15,6 +15,7 @@ import { DoctorFormulario } from "./components/Registro/DoctorFormulario";
 import { HospitalFormulario } from "./components/Registro/HospitalFormulario";
 import { AuthProvider } from "./auth/AuthProvider.tsx";
 import { ParamedicoFormulario } from "./components/Registro/ParamedicoFormulario";
+import VideoCall from './components/Inicio/VideoCall';
 
 function Rutas() {
 	return (
@@ -38,6 +39,7 @@ function Rutas() {
 						<Route path="/hospitales" element={<Hospitales />} />
 						<Route path="/operadores" element={<Operadores />} />
 						<Route path="/medicos" element={<Médicos />} />
+						<Route path="/VideoCall" element={<VideoCall />} />
 					</Route>
 				</Routes>
 			</BrowserRouter>
