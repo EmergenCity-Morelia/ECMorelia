@@ -6,7 +6,7 @@ import Ambulancias from "./components/Mapa/Ambulancias";
 import Paramedicos from "./components/Mapa/Paramédicos";
 import Hospitales from "./components/Mapa/Hospitales";
 import Operadores from "./components/Mapa/Operadores";
-import Médicos from "./components/Mapa/Médicos";
+import Medicos from "./components/Mapa/Medicos.jsx";
 import Login from "./components/Ingreso/Login";
 import RContrasena from "./components/RecuperacionContraseña/RContrasena";
 import NuevaContrasena from "./components/NuevaContrasena/NuevaContrasena";
@@ -15,7 +15,8 @@ import { DoctorFormulario } from "./components/Registro/DoctorFormulario";
 import { HospitalFormulario } from "./components/Registro/HospitalFormulario";
 import { AuthProvider } from "./auth/AuthProvider.tsx";
 import { ParamedicoFormulario } from "./components/Registro/ParamedicoFormulario";
-import VideoCall from './components/Inicio/VideoCall';
+import VideoCall from "./components/Inicio/VideoCall";
+import MapLayout from "./components/Mapa/MapLayout.jsx";
 
 function Rutas() {
 	return (
@@ -33,13 +34,15 @@ function Rutas() {
 					<Route path="/recover-password" element={<RContrasena />} />
 					<Route path="/new-password" element={<NuevaContrasena />} />
 					<Route element={<ProtectedRoutes />}>
-						<Route path="/mapa" element={<Mapa />} />
-						<Route path="/ambulancias" element={<Ambulancias />} />
-						<Route path="/paramedicos" element={<Paramedicos />} />
-						<Route path="/hospitales" element={<Hospitales />} />
-						<Route path="/operadores" element={<Operadores />} />
-						<Route path="/medicos" element={<Médicos />} />
-						<Route path="/VideoCall" element={<VideoCall />} />
+						<Route element={<MapLayout />}>
+							<Route path="mapa" element={<Mapa />} />
+							<Route path="ambulancias" element={<Ambulancias />} />
+							<Route path="paramedicos" element={<Paramedicos />} />
+							<Route path="hospitales" element={<Hospitales />} />
+							<Route path="operadores" element={<Operadores />} />
+							<Route path="medicos" element={<Medicos />} />
+							<Route path="videocall" element={<VideoCall />} />
+						</Route>
 					</Route>
 				</Routes>
 			</BrowserRouter>

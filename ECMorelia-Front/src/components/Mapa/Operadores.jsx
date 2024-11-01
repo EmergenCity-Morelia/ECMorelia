@@ -6,6 +6,8 @@ import { Dialog } from "primereact/dialog";
 import { InputText } from "primereact/inputtext";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
+import logo from "../img/Logo.png";
+import usuario from "../img/usuario.png";
 
 export default function Operadores() {
 	const [visible, setVisible] = useState(false);
@@ -42,45 +44,6 @@ export default function Operadores() {
 
 	return (
 		<div>
-			<header className="bg-gray-400 flex items-center h-18 p-4">
-				<Button icon="pi pi-angle-double-right" onClick={() => setVisible(true)} />
-				<div className="flex-grow">
-					<div className="flex justify-center items-center">
-						<h1 className="font-medium text-3xl text-slate-200">EMERGENCITY</h1>
-						<img className="w-16 h-16" src={logo} alt="Logo" />
-					</div>
-				</div>
-
-				<Sidebar visible={visible} onHide={() => setVisible(false)} className="w-96 md:w-20rem lg:w-30rem">
-					<h2>EMERGENCIA</h2>
-					<div className="flex flex-col space-y-4">
-						<Button label="Gestión de Ambulancias" icon="pi pi-database" onClick={() => navigate("/Ambulancias")} />
-						<Button label="Gestión Paramédicos" icon="pi pi-database" onClick={() => navigate("/Paramédicos")} />
-						<Button label="Gestión de Hospitales" icon="pi pi-database" onClick={() => navigate("/Hospitales")} />
-						<Button label="Gestión de Operadores" icon="pi pi-database" onClick={() => navigate("/Operadores")} />
-						<Button label="Gestión de Médicos" icon="pi pi-database" onClick={() => navigate("/Médicos")} />
-					</div>
-				</Sidebar>
-
-				<div className="dropdown dropdown-end">
-					<button className="mr-4" onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
-						<img className="w-10 h-10 rounded-full border-2 border-white" src={usuario} alt="Perfil" />
-					</button>
-					{isDropdownOpen && (
-						<div className="dropdown-content shadow bg-white absolute w-50 right-12 mt-2 p-2 rounded z-50">
-							<button className="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 hover:text-white dark:text-white">
-								<span
-									className="relative px-10 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0"
-									onClick={() => navigate("/FormularioIngreso")}
-								>
-									Cerrar Sesión
-								</span>
-							</button>
-						</div>
-					)}
-				</div>
-			</header>
-
 			<h2 className="flex justify-center items-center text-2xl mt-6 font-semibold">Gestión de Operadores</h2>
 
 			<div className="flex justify-end mb-3 mt-3">
