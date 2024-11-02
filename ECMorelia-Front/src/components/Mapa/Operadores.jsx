@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Button } from "primereact/button";
 import { Sidebar } from "primereact/sidebar";
 import { useNavigate } from "react-router-dom";
@@ -10,15 +10,12 @@ import logo from "../img/Logo.png";
 import usuario from "../img/usuario.png";
 
 export default function Operadores() {
-	const [visible, setVisible] = useState(false);
 	const [operadores, setOperadores] = useState([
 		{ id: 1, nombre: "Luis Hernández", turno: "Diurno", contraseña: "abcd" },
 		{ id: 2, nombre: "María López", turno: "Nocturno", contraseña: "efgh" }
 	]);
 
 	const [selectedOperador, setSelectedOperador] = useState(null);
-	const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-	const navigate = useNavigate();
 	const [dialogVisible, setDialogVisible] = useState(false);
 	const [editMode, setEditMode] = useState(false);
 	const [newOperador, setNewOperador] = useState({ id: null, nombre: "", turno: "", contraseña: "" });
@@ -44,7 +41,9 @@ export default function Operadores() {
 
 	return (
 		<div>
-			<h2 className="flex justify-center items-center text-2xl mt-6 font-semibold">Gestión de Operadores</h2>
+			<h2 className="flex justify-center items-center text-2xl mt-6 font-semibold dark:text-gray-200">
+				Gestión de Operadores
+			</h2>
 
 			<div className="flex justify-end mb-3 mt-3">
 				<button

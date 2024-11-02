@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Sidebar } from "primereact/sidebar";
 import { Button } from "primereact/button";
@@ -39,7 +39,9 @@ export default function Medicos() {
 
 	return (
 		<div>
-			<h2 className="flex justify-center items-center text-2xl mt-6 font-semibold">Gestión de Médicos</h2>
+			<h2 className="flex justify-center items-center text-2xl mt-6 font-semibold dark:text-gray-200">
+				Gestión de Médicos
+			</h2>
 
 			<div className="flex justify-end mb-3 mt-3">
 				<button

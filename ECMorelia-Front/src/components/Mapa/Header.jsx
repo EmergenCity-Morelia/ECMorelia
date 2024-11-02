@@ -32,33 +32,39 @@ export default function Header() {
 				<h2>EMERGENCIA</h2>
 				<div className="flex flex-col space-y-4">
 					<Button
+						label="Mapa"
+						icon="pi pi-database"
+						className="p-button-rounded p-button-success mt-4 justify-start text-left"
+						onClick={() => navigate("/mapa")}
+					/>
+					<Button
 						label="Gestión de Ambulancias"
 						icon="pi pi-database"
-						className="p-button-rounded p-button-success mt-4 justify-start"
+						className="p-button-rounded p-button-success mt-4 justify-start text-left"
 						onClick={() => navigate("/ambulancias")}
 					/>
 					<Button
 						label="Gestión Paramédicos"
 						icon="pi pi-database"
-						className="p-button-rounded p-button-success mt-4 justify-start"
+						className="p-button-rounded p-button-success mt-4 justify-start text-left"
 						onClick={() => navigate("/paramedicos")}
 					/>
 					<Button
 						label="Gestión de Hospitales"
 						icon="pi pi-database"
-						className="p-button-rounded p-button-success mt-4 justify-start"
+						className="p-button-rounded p-button-success mt-4 justify-start text-left"
 						onClick={() => navigate("/hospitales")}
 					/>
 					<Button
 						label="Gestión de Operadores"
 						icon="pi pi-database"
-						className="p-button-rounded p-button-success mt-4 justify-start"
+						className="p-button-rounded p-button-success mt-4 justify-start text-left"
 						onClick={() => navigate("/operadores")}
 					/>
 					<Button
 						label="Gestión de Médicos"
 						icon="pi pi-database"
-						className="p-button-rounded p-button-success mt-4 justify-start"
+						className="p-button-rounded p-button-success mt-4 justify-start text-left"
 						onClick={() => navigate("/medicos")}
 					/>
 				</div>
